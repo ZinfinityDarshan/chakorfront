@@ -34,8 +34,7 @@ export class AppComponent  implements OnInit{
 
   addEntry(form: Entry){
     console.log(form);
-    let s = this.entryservice.addIndividualEntry(form).subscribe();
-    console.log('id for entry is '+s)
+    let s = this.entryservice.addIndividualEntry(form);
   }
 
   ngOnInit(){
