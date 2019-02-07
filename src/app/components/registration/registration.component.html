@@ -1,0 +1,156 @@
+<section id="join" class="about-section detailsSec ">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+            <h2 class="mb-4" style=" color: whitesmoke">Register As <strong>Individual</strong></h2>
+            <form name="contact" style="color: white" [formGroup]="etryForm" > 
+                <div class="form-group row">
+                  <label for="name" class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control"  name="name" formControlName="name">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control"  name="email" formControlName="emailid">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                  <label for="age" class="col-sm-2 col-form-label">Age</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="age" formControlName="age">
+                  </div>
+                </div>
+                <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" formControlName="gender">
+                          <label class="form-check-label" for="gridRadios1">
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female" formControlName="gender">
+                          <label class="form-check-label" for="gridRadios2">
+                            Female
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div class="form-group row">
+                      <label for="mobileno" class="col-sm-2 col-form-label">Mobile Number</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="mobileno" formControlName="mobileno">
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label for="pickup" class="col-sm-2 col-form-label">Pick-Up Point</label>
+                      <div class="col-sm-10">
+                          <select class="custom-select" id="pickup" formControlName="pickup">
+                              <option *ngFor="let pickup of pickups" [value]="pickup">{{pickup}}</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="payment" class="col-sm-2 col-form-label">UPI Transaction Id</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="payment" formControlName="transid">
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary " style="align-self: center" (click) = "addEntry(etryForm.value)" [disabled]="!etryForm.valid">Register Now</button>  
+                  </div>
+                </div>
+              </form>
+             
+        </div></div>
+        <hr><br>
+
+        <!--Register As Gotup #############################################################3-->
+        <!-- <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <h2 class="mb-4" style=" color: whitesmoke">Register As <strong>Group</strong></h2>
+            <form style="color: white"> 
+
+                <div class="form-group row">
+                  <label for="name" class="col-sm-2 col-form-label">Lead Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control"  name="name" >
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control"  name="email" >
+                    </div>
+                  </div>
+                <div class="form-group row">
+                  <label for="age" class="col-sm-2 col-form-label">Age</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="age" >
+                  </div>
+                </div>
+                <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" >
+                          <label class="form-check-label" for="gridRadios1">
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Female
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div class="form-group row">
+                      <label for="mobileno" class="col-sm-2 col-form-label">Mobile Number</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="mobileno" >
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="participants" class="col-sm-2 col-form-label">No of Participants</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="participants" >
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="payment" class="col-sm-2 col-form-label">Pick-Up Point</label>
+                      <div class="col-sm-10">
+                          <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>Select Pick-Up Point</option>
+                              <option value="1">Dadar</option>
+                              <option value="2">Thane</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="payment" class="col-sm-2 col-form-label">UPI Transaction Id</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="payment" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary " style="align-self: center">Register Now</button>  
+                  </div>
+                </div>
+              </form>
+             
+        </div>
+      </div> -->
+    </div>
+</section>
