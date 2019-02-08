@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.featured{
+    border-left: .5rem solid #64a19d;
+    padding: 0 0 0 1rem;
+}
+.paddedby3{
+    padding: 3rem;
+}
+.notification{
+    position: fixed;
+    // top: 5em;
+    right: 8em;
+    bottom: 2em;
+    
+}

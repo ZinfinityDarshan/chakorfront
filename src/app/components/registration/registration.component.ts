@@ -15,7 +15,8 @@ export class RegistrationComponent implements OnInit {
   etryForm: FormGroup;
   date : Date;
   openSuccessBox: boolean = false;
-  
+  startspinner: boolean = false;
+
   constructor(private fb: FormBuilder, private entryservice: EntryService){
     this.etryForm = fb.group({
       'id':[null],
@@ -32,11 +33,20 @@ export class RegistrationComponent implements OnInit {
   }
 
   addEntry(form: Entry){
+    this.startspinner=true;
     console.log(form);
-    let s = this.entryservice.addIndividualEntry(form);
-    if(s!==null){
-      this.etryForm.reset();
-    }
+    this.entryservice.addIndividualEntry(form).subscribe(res => {
+      console.log(res);
+      if(res.id!==null){
+        this.etryForm.reset();
+        this.startspinner=false;
+        this.openSuccessBox=true;
+        console.log(res.id);
+      }
+      if(res.error!=null){
+        console.log(res.error);
+      }
+    });
   }
   
   ngOnInit(){

@@ -17,13 +17,15 @@ export class EntryService {
     let response: any;
     const headers1 =  new HttpHeaders();
     headers1.set('Access-Control-Allow-Origin','*').set('Content-Type','application/json');
-     this.http.post(this.url,entry).subscribe(res => {
-        console.log('response is '+res);
-        response === res;},
-        (err: HttpErrorResponse) => {
-          console.log(err.error);
-        });
+     return this.http.post(this.url,entry)
+    //  .subscribe(res => {
+    //     console.log('response is '+res);
+    //     response === res;},
+    //     (err: HttpErrorResponse) => {
+    //       console.log(err.error);
+    //     })
+        ;
 
-    return response;
+    // return response;
   }
 }
