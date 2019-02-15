@@ -7,13 +7,17 @@
                 <div class="form-group row">
                   <label for="name" class="col-sm-2 col-form-label">Name</label>
                   <div class="col-sm-10">
+                    <span class="badge badge-danger">Required</span>
                     <input type="text" class="form-control"  name="name" formControlName="name">
                   </div>
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
+                      <span class="badge badge-danger">Required</span>
                       <input type="email" class="form-control"  name="email" formControlName="emailid">
+                      <div *ngIf="etryForm.controls.emailid.invalid"> please type email ID with correct pattern </div> 
+
                     </div>
                   </div>
                 <div class="form-group row">
@@ -42,9 +46,12 @@
                     </div>
                   </fieldset>
                   <div class="form-group row">
-                      <label for="mobileno" class="col-sm-2 col-form-label">Mobile Number</label>
+                      <label for="mobileno" class="col-sm-2 col-form-label">Mobile Number </label>
                       <div class="col-sm-10">
+                        <span class="badge badge-danger">Required</span>
                         <input type="text" class="form-control" name="mobileno" formControlName="mobileno">
+                        <div *ngIf="etryForm.controls.mobileno.required"> Required Field </div>                    
+                        <div *ngIf="etryForm.controls.mobileno.invalid"> mobile number must be minimum/maximum 10 charachters </div>                    
                       </div>
                   </div>
 
@@ -59,6 +66,7 @@
                 <div class="form-group row">
                     <label for="payment" class="col-sm-2 col-form-label">UPI Transaction Id</label>
                     <div class="col-sm-10">
+                      <span class="badge badge-success">Do transact an amount of 2400 Rs on 9768442278 number using Google pay (Tez) & paste transaction id here.</span>
                       <input type="text" class="form-control" name="payment" formControlName="transid">
                     </div>
                 </div>
@@ -71,12 +79,12 @@
                   </div>
                 </div>
               </form>
-              <div *ngIf="openSuccessBox" class="notification alert alert-warning alert-dismissible fade show" role="alert">
-                  <strong>Get Set Ready... !</strong> your registration is being confirmed, our support team will get in touch with you ..!
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
+              <div *ngIf="openSuccessBox" class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{message}}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
         </div></div>
         <hr><br>
 
