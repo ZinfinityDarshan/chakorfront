@@ -15,6 +15,6 @@ export class EntryService {
     let response: any;
     const headers1 =  new HttpHeaders();
     headers1.set('Access-Control-Allow-Origin','*').set('Content-Type','application/json');
-     return this.http.post(Constants.chakorapilocal,entry)
+     return this.http.post(Constants.chakorapi,entry)
   }
 }
