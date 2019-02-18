@@ -22,10 +22,10 @@ export class RegistrationComponent implements OnInit {
   constructor(private fb: FormBuilder, private entryservice: EntryService){
     this.etryForm = fb.group({
       'id':[null],
-      'mobileno': [null, Validators.compose([Validators.minLength(10),Validators.required, Validators.maxLength(10)])],
+      'mobileno': [null, Validators.compose([Validators.minLength(10),Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]*$')])],
       'name' : [null, Validators.required],
-      'gender': [null],
-      'age': [null],
+      'gender': [null, Validators.required],
+      'age': [null, Validators.compose([Validators.pattern('^[0-9]*$'), Validators.required])],
       'transid': [null, Validators.required],
       'createdtimestamp':[this.getCurrentDate()],
       'lastmodifiedtimestamp':[this.getCurrentDate()],
@@ -85,12 +85,14 @@ export class RegistrationComponent implements OnInit {
     return this.etryForm.get('name');
   }
   public get transid() {
-    return this.etryForm.get('mobileno');
+    return this.etryForm.get('transid');
   }
   public get emailid() {
-    return this.etryForm.get('mobileno');
+    return this.etryForm.get('emailid');
   }
-
+  public get age() {
+    return this.etryForm.get('age');
+  }
   
   
 }
