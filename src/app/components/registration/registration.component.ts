@@ -68,12 +68,13 @@ export class RegistrationComponent implements OnInit {
   
   ngOnInit(){
     this.date = new Date();
-    console.log(this.date.getDate()+'-'+this.date.getMonth()+'-'+this.date.getFullYear()+'|'+this.date.getHours()+':'+this.date.getMinutes());
+    //console.log(this.date.getDate()+'-'+this.date.getMonth()+'-'+this.date.getFullYear()+'|'+this.date.getHours()+':'+this.date.getMinutes());
   }
 
   getCurrentDate(): String{
     this.date = new Date();
-    return this.date.getDay()+'-'+this.date.getMonth()+'-'+this.date.getFullYear()+'|'+this.date.getHours()+':'+this.date.getMinutes();
+    console.log(this.date.getDate()+'-'+this.date.getMonth()+'-'+this.date.getFullYear()+'|'+this.date.getHours()+':'+this.date.getMinutes());
+    return this.date.getDate()+'-'+this.date.getMonth()+'-'+this.date.getFullYear()+'|'+this.date.getHours()+':'+this.date.getMinutes();
   }
 
   // Below Getters are for Validation purpose and not to extract the real time values.
