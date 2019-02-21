@@ -39,7 +39,8 @@ export class RegistrationComponent implements OnInit {
     form.lastmodifiedtimestamp = this.getCurrentDate();
     form.createdtimestamp = this.getCurrentDate();
     console.log(form);
-    this.entryservice.addIndividualEntry(form).subscribe(res => {
+    this.entryservice.addIndividualEntry(form)
+    .subscribe(res => {
       console.log(res);
       if(res.id!==null){
         this.etryForm.reset();
